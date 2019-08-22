@@ -35,7 +35,9 @@ CREATE TABLE bike
 CREATE TABLE b_user
 (
 	id varchar2(20) PRIMARY KEY,
-	pw varchar2(20) NOT NULL
+	pw varchar2(20) NOT NULL,
+	name varchar2(20) NOT NULL,
+	phone varchar2(20) NOT NULL
 	
 );
 
@@ -62,7 +64,7 @@ CREATE TABLE return_info
 	rent_id number PRIMARY KEY,
 	sch_time date NOT NULL,
 	return_time date,
-	rent_spot_name varchar2(20) NOT NULL CONSTRAINT parking_rent_name_unique UNIQUE
+	rent_spot_name varchar2(20) UNIQUE
 );
 
 /* Create Foreign Keys */

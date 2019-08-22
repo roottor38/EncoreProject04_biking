@@ -1,28 +1,29 @@
 package model.util;
 
-import java.io.FileInputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 public class DBUtil {
-	static Properties propertiesInfo = new Properties();
-	static{ 
+static DataSource source = null;
+	
+	static{		 
 		try {
-			propertiesInfo.load( new FileInputStream("db.properties") );
-			Class.forName(propertiesInfo.getProperty("jdbc.driver"));
-		} catch (Exception e) {
+			Context initContext = new InitialContext();		
+			Context envContext	= (Context)initContext.lookup("java:/comp/env");
+			source = (DataSource)envContext.lookup("jdbc/myoracle");
+		} catch (NamingException e) {			
 			e.printStackTrace();
-		}
+		}	
 	}
-
 	public static Connection getConnection() throws SQLException{
-		return DriverManager.getConnection(propertiesInfo.getProperty("jdbc.url") , 
-											propertiesInfo.getProperty("jdbc.id"), 
-											propertiesInfo.getProperty("jdbc.pw"));
+		return source.getConnection();
 	}
 
 	// DML용
