@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class BuserDTO {
+public class BUserDTO {
 	private String id;
 	private String pw;
 	private String name;
