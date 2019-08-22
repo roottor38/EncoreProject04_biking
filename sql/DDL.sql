@@ -4,7 +4,13 @@
 DROP TABLE customer CASCADE CONSTRAINTS;
 DROP TABLE restaurant CASCADE CONSTRAINTS;
 
+/* Drop Sequences */
 
+DROP SEQUENCE restaurant_id;
+
+/* Create Sequences */
+
+CREATE SEQUENCE restaurant_id INCREMENT BY 1 START WITH 1;
 
 
 /* Create Tables */
