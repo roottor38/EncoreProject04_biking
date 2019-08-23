@@ -6,7 +6,29 @@
 </head>
 <body>
 
-<button onclick="location.href='testcontroller'">직원 정보 보기</button>
+<button onclick="location.href='testcontroller?command=get'">직원 정보 보기</button>
+
+<br><hr><br>
+<form action="testcontroller" method="post">
+	<input type="hidden" name="command" value="set">
+	<table border="1">
+		<tr>
+			<td>id</td><td><input type="text" name="id"></td>
+		</tr>
+		<tr>
+			<td>pw</td><td><input type="password" name="pw"></td>
+		</tr>
+		<tr>
+			<td>name</td><td><input type="text" name="name"></td>	
+	 	</tr>
+	 	<tr>
+	 		<td>major</td><td><input type="text" name="phone"></td>
+	 	</tr>
+	 	<tr>
+	 		<td colspan="2"><input type="submit" value="가입">&nbsp;&nbsp;&nbsp;<input type="reset" value="취소"></td>
+	 	</tr>
+	</table>
+</form>
 
 </body>
 </html>

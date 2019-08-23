@@ -1,9 +1,12 @@
 package model.util;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -12,7 +15,8 @@ import javax.sql.DataSource;
 
 public class DBUtil {
 static DataSource source = null;
-	
+
+
 	static{		 
 		try {
 			Context initContext = new InitialContext();		
@@ -24,6 +28,13 @@ static DataSource source = null;
 	}
 	public static Connection getConnection() throws SQLException{
 		return source.getConnection();
+	}
+	
+	public static Properties getproperties() throws SQLException, IOException{
+		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("dao.properties");
+		Properties properties = new Properties();
+		properties.load(is); 
+		return properties; 
 	}
 
 	// DML용
