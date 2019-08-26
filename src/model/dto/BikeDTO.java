@@ -6,6 +6,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class BikeDTO {
 	private int bikeId;
-	private int rentSpotName;
+	private String rentSpotName;
 
 }
