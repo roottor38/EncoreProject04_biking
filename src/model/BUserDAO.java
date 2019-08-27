@@ -11,17 +11,17 @@ import model.util.DBUtil;
 
 public class BUserDAO {
 	//CURD
-	public static boolean addUser(String id, String pw, String name, String phone) throws SQLException, IOException {
+	public static boolean addUser(BUserDTO user) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("BUserDAO.addUser"));
-				pstmt.setString(1, id);
-				pstmt.setString(2, pw); 
-				pstmt.setString(3, name);
-				pstmt.setString(4, phone);
+				pstmt.setString(1, user.getId());
+				pstmt.setString(2, user.getPw()); 
+				pstmt.setString(3, user.getName());
+				pstmt.setString(4, user.getPhone());
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
 					return true;
@@ -56,7 +56,7 @@ public class BUserDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		BUserDTO user;
+		BUserDTO user = null;
 
 		try {
 				con = DBUtil.getConnection();

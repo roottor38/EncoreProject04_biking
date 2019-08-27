@@ -53,11 +53,11 @@ public class BikeDAO {
 		return bike;
 	}
 	
-	public static RentSpotDTO getBike(String rentSpotName) throws SQLException, IOException {
+	public static BikeDTO getBike(String rentSpotName) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		RentSpotDTO spot;
+		BikeDTO bike;
 
 		try {
 				con = DBUtil.getConnection();
@@ -65,8 +65,8 @@ public class BikeDAO {
 				pstmt.setString(1, rentSpotName);
 				rset = pstmt.executeQuery();
 				if (rset.next()) {
-					spot = new RentSpotDTO(rset.getString(1), rset.getInt(2));
-					return spot;
+					bike = new BikeDTO(rset.getInt(1), rset.getString(2));
+					return bike;
 				}
 		} finally {
 			DBUtil.close(con, pstmt, rset);

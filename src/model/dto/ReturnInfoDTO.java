@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ReturnInfoDTO {
-	private String rentId;
+	private int rentId;
 	private String schTime;
 	private String returnTime;
 	private String rentSpotName;

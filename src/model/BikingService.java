@@ -28,5 +28,22 @@ public class BikingService {
 	public static BUserDTO userLogIn(String id) throws SQLException, IOException{
 		return BUserDAO.logIn(id);
 	}
+	
+	//bike CRUD
+	public static boolean bikeAdd(String rentSpotName) throws SQLException, IOException{
+		return BikeDAO.addBike(rentSpotName);
+	}
+	
+	public static boolean bikeGetAllbike(String rentSpotName) throws SQLException, IOException{
+		return BikeDAO.getAllBike();
+	}
+	
+	public static BUserDTO bikeGet(String rentSpotName) throws SQLException, IOException{
+		return BikeDAO.getBike(rentSpotName);
+	}
+	
+	public static boolean bikeDelete(String id) throws SQLException, IOException{
+		return BikeDAO.deleteUser(id);
+	}
 }
 
