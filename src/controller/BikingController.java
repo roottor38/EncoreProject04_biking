@@ -50,9 +50,9 @@ public class BikingController extends HttpServlet {
       String pw = request.getParameter("pw");
       String name = request.getParameter("name");
       String phone = request.getParameter("phone");
-      
+      BUserDTO user = new BUserDTO(id,pw, name, phone);
       try {
-         if(BUserDAO.addUser(id, pw, name, phone)) {
+         if(BUserDAO.addUser(user)) {
             request.getRequestDispatcher("successSignUp.jsp").forward(request, response);
          }
          

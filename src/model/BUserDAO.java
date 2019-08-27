@@ -65,6 +65,7 @@ public class BUserDAO {
 				rset = pstmt.executeQuery();
 				if (rset.next()) {
 					user = new BUserDTO(rset.getString(1), rset.getString(2), rset.getString(3), rset.getString(4));
+					System.out.println(rset.getString(1));
 					return user;
 				}
 		} finally {
