@@ -1,9 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
    <title>Sign up for Biking</title>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   
 <!--===============================================================================================-->   
    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
@@ -28,38 +33,33 @@
 <!--===============================================================================================-->
 </head>
 <body>
-   
-   
+	
    <div class="limiter">
       <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
          <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
-            <form action="testcontroller" method="post">
-            <input type="hidden" name="command" value="set">
+         	<form action="bikingcontroller" method="post">
                <span class="login100-form-title p-b-49">
-                  Sign up for Biking
+                  Update
                </span>
+
                <div class="wrap-input100 validate-input m-b-23" data-validate = "ID is required">
-                  <span class="label-input100">ID</span>
-                  <input class="input100" type="text" name="id" placeholder="Type your ID">
-                  <span class="focus-input100" data-symbol="&#xf206;"></span>
-               </div>
                
+                  <span class="label-input100">ID</span>
+                  <input class="input100" type="text" name="id" value="<%=request.getSession().getAttribute("id")%>">
+                  <span class="focus-input100" data-symbol="&#xf206;"></span>
+            
+               </div>
+         
                <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
                   <span class="label-input100">Name</span>
-                  <input class="input100" type="text" name="name" placeholder="Type your Name">
+                  <input class="input100" type="text" name="name" value="${user.id}">
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
                </div>
                
                <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone Number is required">
                   <span class="label-input100">Phone</span>
-                  <input class="input100" type="text" name="phone" placeholder="Type your Phone Number">
+                  <input class="input100" type="text" name="phone" value="${user.id}">
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
-               </div>
-               
-               <div class="wrap-input100 validate-input" data-validate="Password is required">
-                  <span class="label-input100">Password</span>
-                  <input class="input100" type="password" name="pw" placeholder="Type your password">
-                  <span class="focus-input100" data-symbol="&#xf190;"></span>
                </div>
                
                <div class="text-right p-t-8 p-b-31">
@@ -71,7 +71,7 @@
                <div class="container-login100-form-btn">
                   <div class="wrap-login100-form-btn">
                      <div class="login100-form-bgbtn"></div>
-                     <button class="login100-form-btn" type = submit onclick="location.href='testcontroller?command=set'">
+                     <button class="login100-form-btn" type = submit>
                         Sign up
                      </button>
                   </div>
@@ -106,7 +106,7 @@
                      Login
                   </a>
                </div>
-            </form>
+        	</form>
          </div>
       </div>
    </div>
