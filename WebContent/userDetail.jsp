@@ -58,7 +58,7 @@
                
                <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone Number is required">
                   <span class="label-input100">Phone</span>
-                  <input class="input100" type="text" name="phone" value="${user.id}">
+                  <input class="input100" type="text" name="phone" value="${requestScope.data.phone}">
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
                </div>
                
