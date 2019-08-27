@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.BUserDAO;
+import model.BikeDAO;
 import model.RentSpotDAO;
 import model.dto.BUserDTO;
 import model.dto.RentSpotDTO;
@@ -23,8 +24,12 @@ public class TestController extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String command = request.getParameter("command");
 		try {
-			if (command.equals("test")) {
-				test(request, response);
+			if (command.equals("getAll")) {
+				getAllTest(request, response);
+			} else if(command.equals("add")) {
+				addTest(request, response);
+			}else if(command.equals("getOne")) {
+				getOneTest(request, response);
 			}
 		}catch(Exception s){
 			request.setAttribute("errorMsg", s.getMessage());
@@ -33,9 +38,10 @@ public class TestController extends HttpServlet {
 		}
 	}
 	
-	public void test(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void getAllTest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			request.setAttribute("data", RentSpotDAO.getAllRentSpot());
+			
+			request.setAttribute("dataAll", BikeDAO.getAllBike());
 			request.getRequestDispatcher("view.jsp").forward(request, response);
 		
 		} catch (SQLException e) {
@@ -44,4 +50,35 @@ public class TestController extends HttpServlet {
 			
 		}
 	}
+	
+	public void addTest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String rentSpotName = request.getParameter("rentSpotName");
+		try {
+				boolean result = BikeDAO.addBike(rentSpotName);
+				if(result) {
+					System.out.println("성공");
+				}
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			response.sendRedirect("failView.jsp");
+			
+		}
+	}
+	
+	public void getOneTest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		try {
+			
+			request.setAttribute("data", BUserDAO.getUser(id));
+			request.getRequestDispatcher("view.jsp").forward(request, response);
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+			response.sendRedirect("failView.jsp");
+			
+		}
+	}
+	
+	
 }

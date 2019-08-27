@@ -30,16 +30,16 @@ public class ReturnInfoDAO {
 		return false;
 	}
 	
-	public static boolean updateReturnInfo() throws SQLException, IOException {
+	public static boolean updateReturnInfo(String rentSpotName, String id) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 				con = DBUtil.getConnection();
-				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("ReturnInfoDAO.updateUser"));
-				pstmt.setString(1, pw); 
-				pstmt.setString(2, name);
-				pstmt.setString(3, phone);
+				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("ReturnInfoDAO.updateReturnInfo"));
+				pstmt.setString(1, rentSpotName);
+				pstmt.setString(2, id);
+				
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
 					return true;
@@ -50,7 +50,7 @@ public class ReturnInfoDAO {
 		return false;
 	}
 		
-	public static BUserDTO getUser(String id) throws SQLException, IOException {
+	public static BUserDTO getReturnInfo(String id) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -58,7 +58,7 @@ public class ReturnInfoDAO {
 
 		try {
 				con = DBUtil.getConnection();
-				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("ReturnInfoDAO.getUser"));
+				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("ReturnInfoDAO.getReturnInfo"));
 				pstmt.setString(1, id);
 				rset = pstmt.executeQuery();
 				if (rset.next()) {
@@ -71,13 +71,13 @@ public class ReturnInfoDAO {
 		return null;
 	}
 	
-	public static boolean deleteUser(String id) throws SQLException, IOException {
+	public static boolean deleteReturnInfo(String id) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 				con = DBUtil.getConnection();
-				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("ReturnInfoDAO.deleteUser"));
+				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("ReturnInfoDAO.deleteReturnInfo"));
 				pstmt.setString(1, id);
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
