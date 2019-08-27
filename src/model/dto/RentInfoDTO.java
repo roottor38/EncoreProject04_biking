@@ -6,9 +6,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class RentInfoDTO {
 	private int rentId;
-	private String rentTime;
-	private int bikeId;
-	private int id;
-	private int rentSpotName;
+	private String schTime;
+	private String returnTime;
+	private String rentSpotName;
 	
 }

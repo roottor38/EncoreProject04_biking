@@ -29,17 +29,19 @@ CREATE TABLE b_user
 	id varchar2(20) PRIMARY KEY,
 	pw varchar2(20) NOT NULL,
 	name varchar2(20) NOT NULL,
-	phone varchar2(20) NOT NULL
+	phone varchar2(20) NOT NULL,
+	rent_status number default 0
 	
 );
 
 CREATE TABLE rent_info
 (
 	rent_id number PRIMARY KEY,
-	rent_time date NOT NULL,
-	bike_id number NOT NULL UNIQUE,
+	rent_time varchar2(20) NOT NULL,
+	bike_id number NOT NULL,
 	id varchar2(20),
 	rent_spot_name varchar2(20)
+	
 );
 
 CREATE TABLE rent_spot
@@ -51,13 +53,13 @@ CREATE TABLE rent_spot
 CREATE TABLE return_info
 (
 	rent_id number PRIMARY KEY,
-	sch_time date NOT NULL,
-	return_time date,
+	sch_time varchar2(20) NOT NULL,
+	return_time varchar2(20),
 	rent_spot_name varchar2(20) UNIQUE
 );
 
 /* Create Foreign Keys */
-ALTER TABLE rent_info
+ALTER TABLE rent_info 
 	ADD FOREIGN KEY (bike_id)
 	REFERENCES bike (bike_id)
 ;
