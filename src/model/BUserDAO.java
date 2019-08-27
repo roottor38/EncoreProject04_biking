@@ -32,16 +32,16 @@ public class BUserDAO {
 		return false;
 	}
 	
-	public static boolean updateUser(String id, String pw, String name, String phone) throws SQLException, IOException {
+	public static boolean updateUser(BUserDTO user) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 
 		try {
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("BUserDAO.updateUser"));
-				pstmt.setString(1, pw); 
-				pstmt.setString(2, name);
-				pstmt.setString(3, phone);
+				pstmt.setString(1, user.getPw()); 
+				pstmt.setString(2, user.getName());
+				pstmt.setString(3, user.getPhone());
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
 					return true;
