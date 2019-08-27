@@ -45,20 +45,26 @@
                <div class="wrap-input100 validate-input m-b-23" data-validate = "ID is required">
                
                   <span class="label-input100">ID</span>
-                  <input class="input100" type="text" name="id" value="<%=request.getSession().getAttribute("id")%>">
+                  <input class="input100" type="text" name="id" value="${sessionScope.id}">
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
             
                </div>
          
                <div class="wrap-input100 validate-input m-b-23" data-validate = "Name is required">
                   <span class="label-input100">Name</span>
-                  <input class="input100" type="text" name="name" value="${user.id}">
+                  <input class="input100" type="text" name="name" value="${requestScope.data.name}">
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
                </div>
                
                <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone Number is required">
                   <span class="label-input100">Phone</span>
-                  <input class="input100" type="text" name="phone" value="${user.id}">
+                  <input class="input100" type="text" name="phone" value="${requestScope.data.phone}">
+                  <span class="focus-input100" data-symbol="&#xf206;"></span>
+               </div>
+               
+               <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone Number is required">
+                  <span class="label-input100">Password</span>
+                  <input class="input100" type="text" name="phone" value="${requestScope.data.pw}">
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
                </div>
                
@@ -71,8 +77,8 @@
                <div class="container-login100-form-btn">
                   <div class="wrap-login100-form-btn">
                      <div class="login100-form-bgbtn"></div>
-                     <button class="login100-form-btn" type = submit>
-                        Sign up
+                     <button class="login100-form-btn" onclick="location.href='userUpdate.html'">
+                        Update
                      </button>
                   </div>
                </div>

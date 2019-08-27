@@ -18,7 +18,7 @@
 				<form action="bikingcontroller" method="post">
 					<span class="icon solid major fa-cloud"></span>
 					<h1>안녕하세요! <strong></strong><br />
-					${requestScope.data.name}Welcome to Biking!</h1>
+					${requestScope.data.id}Welcome to Biking!</h1>
 					<p>바이킹은 누구나, 언제나, 어디서나 쉽고 편리하게 이용할 수 있는<br />
 					무인대여 시스템입니다.</p>
 					<ul class="actions special">
