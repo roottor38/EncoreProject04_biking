@@ -118,7 +118,7 @@ public class RentSpotDAO {
 		String rentPlus = "update rent_spot set num_bike = (select num_bike from rent_spot where rent_spot_name = ?) + 1 where rent_spot_name = ?";
 		try {
 				con = DBUtil.getConnection();
-				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty(rentPlus));
+				pstmt = con.prepareStatement(rentPlus);
 				pstmt.setString(1, rentSpotName);
 				pstmt.setString(2, rentSpotName);
 				int result = pstmt.executeUpdate();
