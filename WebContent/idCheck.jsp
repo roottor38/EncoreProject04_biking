@@ -20,11 +20,13 @@
 					<h1>안녕하세요! <strong></strong><br />
 					${requestScope.data.id}Welcome to Biking!</h1>
 					<p>바이킹은 누구나, 언제나, 어디서나 쉽고 편리하게 이용할 수 있는<br />
-					무인대여 시스템입니다.</p>
+					자전거 무인대여 시스템입니다.</p>
 					<ul class="actions special">
-						<li><a href="daumAPI.html" class="button scrolly">대여하기</a></li>
-						<li><a href="bikingcontroller?command=updateUserReq" class="button scrolly">회원정보</a></li>
-						<li><a href="daumAPI.html" class="button scrolly">로그아웃</a></li>
+					
+						<!--<li><a href="daumAPI.html" class="button scrolly">대여하기</a></li>-->
+						<li><a href="daumAPI.jsp" class="button scrolly">대여하기</a></li>
+						<li><a href="bikingcontroller?command=userInfoReq" class="button scrolly">회원정보</a></li>
+						<li><a href="bikingcontroller?command=logOut" class="button scrolly">로그아웃</a></li>
 						
 					</ul>
 					</form>

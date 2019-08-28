@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-08-22 10:29:09</creation_date>
-			<updated_date>2019-08-22 17:34:48</updated_date>
+			<updated_date>2019-08-26 15:16:52</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -790,7 +790,7 @@
 			<connections>
 				<relation>
 					<id>3</id>
-					<source>1</source>
+					<source>4</source>
 					<target>3</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -812,12 +812,12 @@
 				</relation>
 				<relation>
 					<id>4</id>
-					<source>0</source>
+					<source>1</source>
 					<target>3</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
-						<target_xp>98</target_xp>
-						<target_yp>0</target_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
 						<color>
 							<r>0</r>
 							<g>0</g>
@@ -834,12 +834,12 @@
 				</relation>
 				<relation>
 					<id>5</id>
-					<source>4</source>
+					<source>0</source>
 					<target>3</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
-						<target_xp>-1</target_xp>
-						<target_yp>-1</target_yp>
+						<target_xp>98</target_xp>
+						<target_yp>0</target_yp>
 						<color>
 							<r>0</r>
 							<g>0</g>
@@ -931,7 +931,7 @@
 				<normal_column>
 					<id>10</id>
 					<referenced_column>0</referenced_column>
-					<relation>4</relation>
+					<relation>5</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -965,7 +965,7 @@
 				<normal_column>
 					<id>11</id>
 					<referenced_column>13</referenced_column>
-					<relation>5</relation>
+					<relation>3</relation>
 					<description></description>
 					<unique_key_name>member_id_unique</unique_key_name>
 					<logical_name></logical_name>
@@ -999,7 +999,7 @@
 				<normal_column>
 					<id>12</id>
 					<referenced_column>2</referenced_column>
-					<relation>3</relation>
+					<relation>4</relation>
 					<description></description>
 					<unique_key_name>parking_rent_name_unique</unique_key_name>
 					<logical_name></logical_name>
