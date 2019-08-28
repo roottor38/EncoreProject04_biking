@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
-import model.BUserDAO;
 import model.BikingService;
 import model.dto.BUserDTO;
 @WebServlet("/bikingcontroller")
@@ -195,8 +194,8 @@ public class BikingController extends HttpServlet {
 		String url = "showError.jsp";
 		try {
 			
-			request.setAttribute("rentSpot", BikingService.bikeGet(request.getParameter("retSpotName")));
-			url = "daum.jsp";
+			request.setAttribute("rentSpot", BikingService.bikeGet(request.getParameter("rentSpotName")));
+			url = "rentSpotDetail.jsp";
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
 		}
