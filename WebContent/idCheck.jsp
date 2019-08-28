@@ -18,18 +18,15 @@
 				<form action="bikingcontroller" method="post">
 					<span class="icon solid major fa-cloud"></span>
 					<h1>안녕하세요! <strong></strong><br />
-					${requestScope.data.id}Welcome to Biking!</h1>
+					Welcome to Biking!</h1>
 					<p>바이킹은 누구나, 언제나, 어디서나 쉽고 편리하게 이용할 수 있는<br />
 					자전거 무인대여 시스템입니다.</p>
 					<ul class="actions special">
-					
-						<!--<li><a href="daumAPI.html" class="button scrolly">대여하기</a></li>-->
 						<li><a href="daumAPI.jsp" class="button scrolly">대여하기</a></li>
 						<li><a href="bikingcontroller?command=userInfoReq" class="button scrolly">회원정보</a></li>
 						<li><a href="bikingcontroller?command=logOut" class="button scrolly">로그아웃</a></li>
-						
 					</ul>
-					</form>
+				</form>
 				</div>
 			</section>
 
@@ -452,11 +449,11 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
 					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://github.com/roottor38/project01_biking" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<li>&copy; PY & JH</li><li>Design: <a href="https://github.com/roottor38/project01_biking">PY & JH</a></li>
 				</ul>
 			</section>
 
