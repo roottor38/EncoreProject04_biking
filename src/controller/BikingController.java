@@ -195,8 +195,9 @@ public class BikingController extends HttpServlet {
 		String url = "showError.jsp";
 		try {
 			
-			request.setAttribute("rentSpot", BikingService.bikeGet(request.getParameter("retSpotName")));
-			url = "daum.jsp";
+			request.setAttribute("rentSpot", BikingService.bikeGet(request.getParameter("rentSpotName")));
+			System.out.println(request.getParameter("rentSpotName"));
+			url = "rentSpotDetail.jsp";
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
 		}
@@ -209,9 +210,9 @@ public class BikingController extends HttpServlet {
 		int bikeId =  Integer.parseInt(request.getParameter("bikeId"));
 		String url = "showError.jsp";
 		try {
-			
+			System.out.println(bikeId);
 			request.setAttribute("rentSpot", BikingService.rentInfoAdd((String) session.getAttribute("id"), bikeId));
-			url = "daum.jsp";
+			url = "returnDaumAPI.jsp";
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
 		}

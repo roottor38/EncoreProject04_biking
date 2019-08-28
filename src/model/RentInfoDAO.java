@@ -65,7 +65,6 @@ public class RentInfoDAO {
 				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("RentInfoDAO.updateUserStatus"));
 				pstmt.setInt(1, userStatus);
 				pstmt.setString(2, id);
-
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
 					return true;
