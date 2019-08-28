@@ -111,5 +111,43 @@ public class RentSpotDAO {
 		}
 		return false;
 	}
+	
+	public static boolean plusNumBike(String rentSpotName) throws SQLException, IOException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String rentPlus = "update rent_spot set num_bike = (select num_bike from rent_spot where rent_spot_name = ?) + 1 where rent_spot_name = ?";
+		try {
+				con = DBUtil.getConnection();
+				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty(rentPlus));
+				pstmt.setString(1, rentSpotName);
+				pstmt.setString(2, rentSpotName);
+				int result = pstmt.executeUpdate();
+				if (result == 1) {
+					return true;
+			}
+		} finally {
+			DBUtil.close(con, pstmt);
+		}
+		return false;
+	}
+	
+	public static boolean minusNumBike(String rentSpotName) throws SQLException, IOException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String rentMinus = "update rent_spot set num_bike = (select num_bike from rent_spot where rent_spot_name = ?) - 1 where rent_spot_name = ?";
+		try {
+				con = DBUtil.getConnection();
+				pstmt = con.prepareStatement(rentMinus);
+				pstmt.setString(1, rentSpotName);
+				pstmt.setString(2, rentSpotName);
+				int result = pstmt.executeUpdate();
+				if (result == 1) {
+					return true;
+			}
+		} finally {
+			DBUtil.close(con, pstmt);
+		}
+		return false;
+	}
 
 }

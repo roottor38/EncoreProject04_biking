@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import model.dto.BUserDTO;
 import model.dto.BikeDTO;
 import model.dto.RentSpotDTO;
 import model.util.DBUtil;
@@ -82,6 +83,26 @@ public class BikeDAO {
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("BikeDAO.deleteBike"));
 				pstmt.setInt(1, bikeId);
+				int result = pstmt.executeUpdate();
+				if (result == 1) {
+					return true;
+			}
+		} finally {
+			DBUtil.close(con, pstmt);
+		}
+		return false;
+	}
+	
+	public static boolean updateBike(String spot, int bikeId) throws SQLException, IOException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+				con = DBUtil.getConnection();
+				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("BikeDAO.updateBike"));
+				pstmt.setString(1, spot);
+				pstmt.setInt(2, bikeId); 
+
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
 					return true;
