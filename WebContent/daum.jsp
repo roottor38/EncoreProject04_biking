@@ -9,8 +9,6 @@
 <title>daum.jsp</title>
 </head>
 <body>
-	김혜수
-	${requestScope.rentSpot.rentSpotName}
-	${requestScope.rentSpot.numBike}
+	대여가능한 자전거 수 : ${requestScope.rentSpot.numBike}
 </body>
 </html>

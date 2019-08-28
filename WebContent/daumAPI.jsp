@@ -17,7 +17,7 @@
 	font-size: 12px;
 	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
 	line-height: 1.5;
-} 
+}
 
 .wrap * {
 	padding: 0;
@@ -120,34 +120,31 @@
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d5361ac9ac2c30d9d1c1750e254adc13"></script>
 	<script>
-	 window.onload = function() {
-		rentSpot();
-	} 
-	
-	
-	function rentSpot() {
-		var xhttp = new XMLHttpRequest();
-		xhttp.onreadystatechange = function() {
-			console.log("hi");
-			let data;
-			if (this.readyState == 4 && this.status == 200) {
-				
-				document.getElementById("rentSpot").innerHTML = this.responseText;
-				console.log("bye");
-				console.log(document.getElementById("rentSpot").innerHTML = this.responseText);
-				data = document.getElementById("rentSpot").getAttribute('rentSpotName');
-				console.log(document.getElementById("rentSpot").getAttribute('rentSpotName'));
-			}
+		window.onload = function() {
+			closeOverlay();
+			closeOverlay1();
+			closeOverlay2();
+			closeOverlay3();
+			closeOverlay4();
 		}
-		//xhttp.open("GET", "daum.jsp", true);
-		xhttp.open("GET", "/project01_biking/bikingcontroller?command=getRentSpot", true);
-		xhttp.send();
-	}
+
+		function rentSpot(data) {
+			var xhttp = new XMLHttpRequest();
+			var data;
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("spot").innerHTML = this.responseText;
+				}
+			}
+			xhttp.open("GET",
+					"/project01_biking/bikingcontroller?command=getRentSpot&rentSpotName="
+							+ data, true);
+			xhttp.send();
+		}
 	</script>
-	
-	
+
+
 	<script>
-	
 		var mapContainer = document.getElementById('map'), // 지도의 중심좌표
 		mapOption = {
 			center : new kakao.maps.LatLng(37.49241777400508,
@@ -175,13 +172,12 @@
 				+ '            서초역 1번 출구 앞'
 				+ '            <div class="close" onclick="closeOverlay()" title="닫기"></div>'
 				+ '        </div>'
-				+ '		<div id="rentSpot" name="rentSpotName" value="서초"></div>'
 				+ '        <div class="body">'
 				+ '            <div class="img">'
 				+ '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">'
 				+ '           </div>'
 				+ '            <div class="desc">'
-				+ '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>'
+				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
 				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
@@ -197,7 +193,14 @@
 
 		// 마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 		kakao.maps.event.addListener(marker, 'click', function() {
+			closeOverlay();
+			closeOverlay1();
+			closeOverlay2();
+			closeOverlay3();
+			closeOverlay4();
 			overlay.setMap(map);
+			rentSpot("서초");
+
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
@@ -216,7 +219,7 @@
 		var content = '<div class="wrap">'
 				+ '    <div class="info">'
 				+ '        <div class="title">'
-				+ '            교대역 1번 출구 앞'
+				+ '            교대역 1번출구 앞'
 				+ '            <div class="close" onclick="closeOverlay1()" title="닫기"></div>'
 				+ '        </div>'
 				+ '        <div class="body">'
@@ -224,7 +227,7 @@
 				+ '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">'
 				+ '           </div>'
 				+ '            <div class="desc">'
-				+ '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>'
+				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
 				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
@@ -240,7 +243,14 @@
 
 		//마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 		kakao.maps.event.addListener(marker1, 'click', function() {
+			closeOverlay();
+			closeOverlay1();
+			closeOverlay2();
+			closeOverlay3();
+			closeOverlay4();
 			overlay1.setMap(map);
+			rentSpot("교대");
+
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
@@ -267,7 +277,7 @@
 				+ '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">'
 				+ '           </div>'
 				+ '            <div class="desc">'
-				+ '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>'
+				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
 				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
@@ -283,7 +293,14 @@
 
 		//마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 		kakao.maps.event.addListener(marker2, 'click', function() {
+			closeOverlay();
+			closeOverlay1();
+			closeOverlay2();
+			closeOverlay3();
+			closeOverlay4();
 			overlay2.setMap(map);
+			rentSpot("방배");
+
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
@@ -310,7 +327,7 @@
 				+ '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">'
 				+ '           </div>'
 				+ '            <div class="desc">'
-				+ '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>'
+				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
 				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
@@ -326,12 +343,19 @@
 
 		//마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 		kakao.maps.event.addListener(marker3, 'click', function() {
+			closeOverlay();
+			closeOverlay1();
+			closeOverlay2();
+			closeOverlay3();
+			closeOverlay4();
 			overlay3.setMap(map);
+			rentSpot("교대");
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 		function closeOverlay3() {
 			overlay3.setMap(null);
+
 		}
 
 		//지도에 마커를 표시합니다 
@@ -353,7 +377,7 @@
 				+ '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">'
 				+ '           </div>'
 				+ '            <div class="desc">'
-				+ '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>'
+				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
 				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
@@ -375,12 +399,9 @@
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 		function closeOverlay4() {
 			overlay4.setMap(null);
+
 		}
-
-		
-
 	</script>
-	<div id="rentSpot" name="rentSpotName" value="서초">aa</div>
 	<div>
 		<p></p>
 		<ul class="actions special">
