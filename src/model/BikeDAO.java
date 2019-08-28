@@ -53,25 +53,25 @@ public class BikeDAO {
 		return bike;
 	}
 	
-	public static BikeDTO getBike(String rentSpotName) throws SQLException, IOException {
+	public static ArrayList<BikeDTO> getBike(String rentSpotName) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		BikeDTO bike;
+		ArrayList<BikeDTO> bike = null;
 
 		try {
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("BikeDAO.getBike"));
 				pstmt.setString(1, rentSpotName);
 				rset = pstmt.executeQuery();
-				if (rset.next()) {
-					bike = new BikeDTO(rset.getInt(1), rset.getString(2));
-					return bike;
+				bike = new ArrayList<BikeDTO>();
+				while(rset.next()) {
+					bike.add(new BikeDTO(rset.getInt(1), rset.getString(2)));
 				}
 		} finally {
 			DBUtil.close(con, pstmt, rset);
 		}
-		return null;
+		return bike;
 	}
 	
 	public static boolean deleteBike(int bikeId) throws SQLException, IOException {

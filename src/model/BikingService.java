@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import model.dto.BUserDTO;
 import model.dto.BikeDTO;
 import model.dto.RentInfoDTO;
@@ -63,7 +65,7 @@ public class BikingService {
 		return BikeDAO.getAllBike();
 	}
 	
-	public static BikeDTO bikeGet(String rentSpotName) throws SQLException, IOException{
+	public static ArrayList<BikeDTO> bikeGet(String rentSpotName) throws SQLException, IOException{
 		return BikeDAO.getBike(rentSpotName);
 	}
 	
@@ -74,17 +76,19 @@ public class BikingService {
 	
 	//RentInfoDAO
 	public static boolean rentInfoAdd(String id, int bikeId) throws SQLException, IOException{
-		return RentInfoDAO.addRentInfo(id, bikeId);
-	}
-	
-	public static boolean updateUserStatus(int userStatus, String id) throws SQLException, IOException{
-		return RentInfoDAO.updateUserStatus(userStatus, id);
+		if(RentInfoDAO.checkRentStatus(id) == 0) {
+			return false;
+		}else if(RentInfoDAO.checkRentStatus(id) == 1) {
+			System.out.println(RentInfoDAO.addRentInfo(id, bikeId) && RentInfoDAO.updateUserStatus(1, id));
+			return RentInfoDAO.addRentInfo(id, bikeId) && RentInfoDAO.updateUserStatus(1, id);
+		}else {
+			return false;
+		}
 	}
 	
 	public static ArrayList<RentInfoDTO> getAllRentInfo() throws SQLException, IOException{
 		return RentInfoDAO.getAllRentInfo();
-	}
-	
+	}	
 	
 }
 
