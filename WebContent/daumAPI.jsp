@@ -115,7 +115,7 @@
 </style>
 </head>
 <body>
-	<div id="map" style="width: 100%; height: 630px;"></div>
+	<div id="map" style="width: 100%; height: 780px;"></div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d5361ac9ac2c30d9d1c1750e254adc13"></script>
@@ -178,8 +178,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=서초">대여</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 서초대로 240</div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=서초1">대여</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -199,7 +199,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay.setMap(map);
-			rentSpot("서초");
+			rentSpot("서초1");
 
 		});
 
@@ -228,8 +228,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대">대여</a></div>'
+				+ '                <div class="jibun ellipsis">서울특별시 서초구 서초대로 314</div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대1">대여</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -249,7 +249,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay1.setMap(map);
-			rentSpot("교대");
+			rentSpot("교대1");
 
 		});
 
@@ -278,8 +278,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=방배">대여</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 서초동 1650</div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대정문">대여</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -299,7 +299,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay2.setMap(map);
-			rentSpot("방배");
+			rentSpot("교대정문");
 
 		});
 
@@ -328,8 +328,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 반포대로 76</div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대입구">대여</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -349,7 +349,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay3.setMap(map);
-			rentSpot("교대");
+			rentSpot("교대입구");
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
@@ -378,8 +378,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 서초대로64길 73</div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대교차로">대여</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -393,7 +393,13 @@
 
 		//마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 		kakao.maps.event.addListener(marker4, 'click', function() {
+			closeOverlay();
+			closeOverlay1();
+			closeOverlay2();
+			closeOverlay3();
+			closeOverlay4();
 			overlay4.setMap(map);
+			rentSpot("교대교차로");
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
@@ -405,7 +411,6 @@
 	<div>
 		<p></p>
 		<ul class="actions special">
-			<li><a href="#" class="button wide primary">Sign Up</a></li>
 			<li><a href="idCheck.jsp" class="button wide">뒤로 가기</a></li>
 		</ul>
 	</div>

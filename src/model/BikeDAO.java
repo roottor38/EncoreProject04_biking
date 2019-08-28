@@ -98,6 +98,7 @@ public class BikeDAO {
 		PreparedStatement pstmt = null;
 
 		try {
+				System.out.println(spot + "  " + bikeId);
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("BikeDAO.updateBike"));
 				pstmt.setString(1, spot);

@@ -36,10 +36,12 @@
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2></h2>
+								<h2>Biking과 함께하는 건강한 생활</h2>
 								
 							</header>
-							<p>Adipiscing a commodo ante nunc accumsan et interdum mi ante adipiscing. A nunc lobortis non nisl amet vis sed volutpat aclacus nascetur ac non. Lorem curae et ante amet sapien sed tempus adipiscing id accumsan.</p>
+							<p>대여소는 지하철 출입구, 버스정류장, 주택단지,<br /> 
+							관공서, 학교, 은행 등 생활내 통행장소를 중심으로 <br />
+							설치되어 운영중에 있습니다.</p>
 						</div>
 						<div class="col-6 col-12-medium imp-medium">
 							<span class="image fit"><img src="images/bike.jpg" alt="" /></span>
@@ -79,52 +81,39 @@
 			<section id="three" class="main style1 special">
 				<div class="container">
 					<header class="major">
-						<h2>Adipiscing amet consequat</h2>
+						<h2><strong>Biking</strong> 사용 후기</h2>
 					</header>
-					<p>Ante nunc accumsan et aclacus nascetur ac ante amet sapien sed.</p>
+					<p>다른 사람들에게 Biking을 추천해 주세요!</p>
 					<div class="row gtr-150">
 						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic02.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<span class="image fit"><img src="images/reply1.jpg" alt="" /></span>
+							<h3>요즘 저녁 날씨에 딱 타기 좋네요 !</h3>
+							<p></p>
 							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
+
 							</ul>
 						</div>
 						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic03.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<span class="image fit"><img src="images/reply2.jpg" alt="" /></span>
+							<h3>예, 반갑습니다. 서울 시장입니다. 서울 따릉이 정말 좋네요.</h3>
+							<p></p>
 							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
+								<li><a href="#" class="button">후기 쓰러가기</a></li>
 							</ul>
 						</div>
 						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<h3>Magna feugiat lorem</h3>
-							<p>Adipiscing a commodo ante nunc magna lorem et interdum mi ante nunc lobortis non amet vis sed volutpat et nascetur.</p>
+							<span class="image fit"><img src="images/reply3.jpg" alt="" /></span>
+							<h3>서울에서 부산까지 <br />따릉이로 달려요!	</h3>
+							<p></p>
 							<ul class="actions special">
-								<li><a href="#" class="button">More</a></li>
+
 							</ul>
 						</div>
 					</div>
 				</div>
 			</section>
 
-		<!-- Four -->
-			<section id="four" class="main style2 special">
-				<div class="container">
-					<header class="major">
-						<h2>Ipsum feugiat consequat?</h2>
-					</header>
-					<p>Sed lacus nascetur ac ante amet sapien.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button wide primary">Sign Up</a></li>
-						<li><a href="#" class="button wide">Learn More</a></li>
-					</ul>
-				</div>
-			</section>
-
+		
 		<!-- Five -->
 		<!--
 			<section id="five" class="main style1">

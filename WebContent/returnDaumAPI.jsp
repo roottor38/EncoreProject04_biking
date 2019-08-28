@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -115,7 +115,7 @@
 </style>
 </head>
 <body>
-	<div id="map" style="width: 100%; height: 630px;"></div>
+	<div id="map" style="width: 100%; height: 780px;"></div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d5361ac9ac2c30d9d1c1750e254adc13"></script>
@@ -179,7 +179,7 @@
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=서초">대여</a></div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=서초">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -229,7 +229,7 @@
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대">대여</a></div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -279,7 +279,7 @@
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
 				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=방배">대여</a></div>'
+				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=방배">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -405,7 +405,6 @@
 	<div>
 		<p></p>
 		<ul class="actions special">
-			<li><a href="#" class="button wide primary">Sign Up</a></li>
 			<li><a href="idCheck.jsp" class="button wide">뒤로 가기</a></li>
 		</ul>
 	</div>

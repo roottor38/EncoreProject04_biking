@@ -215,6 +215,7 @@ public class BikingController extends HttpServlet {
 			url = "returnDaumAPI.jsp";
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
+			s.printStackTrace();
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
