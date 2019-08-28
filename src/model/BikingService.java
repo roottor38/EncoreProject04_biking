@@ -12,7 +12,7 @@ import model.dto.RentSpotDTO;
 public class BikingService {
 	
 	//user CRUD
-	public static boolean userAddd(BUserDTO user) throws SQLException, IOException{
+	public static boolean userAdd(BUserDTO user) throws SQLException, IOException{
 		return BUserDAO.addUser(user);
 	}
 	

@@ -20,76 +20,75 @@ CREATE SEQUENCE rent_id INCREMENT BY 1 START WITH 1;
 
 CREATE TABLE bike
 (
-	bike_id number PRIMARY KEY,
-	rent_spot_name varchar2(20)
+   bike_id number PRIMARY KEY,
+   rent_spot_name varchar2(20)
 );
 
 CREATE TABLE b_user
 (
-	id varchar2(20) PRIMARY KEY,
-	pw varchar2(20) NOT NULL,
-	name varchar2(20) NOT NULL,
-	phone varchar2(20) NOT NULL,
-	rent_status number default 0
-	
+   id varchar2(20) PRIMARY KEY,
+   pw varchar2(20) NOT NULL,
+   name varchar2(20) NOT NULL,
+   phone varchar2(20) NOT NULL,
+   rent_status number default 0
+   
 );
 
 CREATE TABLE rent_info
 (
-	rent_id number PRIMARY KEY,
-	rent_time varchar2(20) NOT NULL,
-	bike_id number NOT NULL,
-	id varchar2(20),
-	rent_spot_name varchar2(20)
-	
+   rent_id number PRIMARY KEY,
+   rent_time varchar2(20) NOT NULL,
+   bike_id number NOT NULL,
+   id varchar2(20),
+   rent_spot_name varchar2(20)
+   
 );
 
 CREATE TABLE rent_spot
 (
-	rent_spot_name varchar2(20) PRIMARY KEY,
-	num_bike number NOT NULL
+   rent_spot_name varchar2(20) PRIMARY KEY,
+   num_bike number NOT NULL
 );
 
 CREATE TABLE return_info
 (
-	rent_id number PRIMARY KEY,
-	sch_time varchar2(20) NOT NULL,
-	return_time varchar2(20),
-	rent_spot_name varchar2(20) UNIQUE
+   rent_id number PRIMARY KEY,
+   sch_time varchar2(20) NOT NULL,
+   return_time varchar2(20),
+   rent_spot_name varchar2(20) UNIQUE
 );
 
 /* Create Foreign Keys */
 ALTER TABLE rent_info 
-	ADD FOREIGN KEY (bike_id)
-	REFERENCES bike (bike_id)
+   ADD FOREIGN KEY (bike_id)
+   REFERENCES bike (bike_id)
 ;
 
 ALTER TABLE rent_info
-	ADD FOREIGN KEY (id)
-	REFERENCES b_user (id)
+   ADD FOREIGN KEY (id)
+   REFERENCES b_user (id)
 ;
 
 ALTER TABLE return_info
-	ADD FOREIGN KEY (rent_id)
-	REFERENCES rent_info (rent_id)
+   ADD FOREIGN KEY (rent_id)
+   REFERENCES rent_info (rent_id)
 ;
 
 ALTER TABLE bike
-	ADD FOREIGN KEY (rent_spot_name)
-	REFERENCES rent_spot (rent_spot_name)
+   ADD FOREIGN KEY (rent_spot_name)
+   REFERENCES rent_spot (rent_spot_name)
 ;
 
 
 ALTER TABLE rent_info
-	ADD FOREIGN KEY (rent_spot_name)
-	REFERENCES rent_spot (rent_spot_name)
+   ADD FOREIGN KEY (rent_spot_name)
+   REFERENCES rent_spot (rent_spot_name)
 ;
 
 
 ALTER TABLE return_info
-	ADD FOREIGN KEY (rent_spot_name)
-	REFERENCES rent_spot (rent_spot_name)
+   ADD FOREIGN KEY (rent_spot_name)
+   REFERENCES rent_spot (rent_spot_name)
 ;
 
 purge recyclebin;
-

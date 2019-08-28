@@ -42,6 +42,7 @@ public class BUserDAO {
 				pstmt.setString(1, user.getPw()); 
 				pstmt.setString(2, user.getName());
 				pstmt.setString(3, user.getPhone());
+				pstmt.setString(4, user.getId());
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
 					return true;

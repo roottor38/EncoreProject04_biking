@@ -34,8 +34,14 @@ public class BikingController extends HttpServlet {
             logIn(request, response);
          }else if(command.equals("updateUserReq")){//재능 기부자 정보 수정요청
             updateUserReq(request, response);
-         } else if (command.equals("updateUser")) {
+         }else if(command.equals("userInfoReq")) {
+        	 userInfoReq(request, response);
+         }else if (command.equals("updateUser")) {
             updateUser(request, response);
+         }else if(command.equals("getRentSpot")) {
+        	 getRentSpot(request, response);
+         }else if(command.equals("logOut")) {
+        	 logOut(request, response);
          }
       }catch(Exception s){
          request.setAttribute("errorMsg", s.getMessage());
@@ -52,7 +58,7 @@ public class BikingController extends HttpServlet {
       String phone = request.getParameter("phone");
       BUserDTO user = new BUserDTO(id,pw, name, phone);
       try {
-         if(BUserDAO.addUser(user)) {
+         if(BikingService.userAdd(user)) {
             request.getRequestDispatcher("successSignUp.jsp").forward(request, response);
          }
          
@@ -104,13 +110,13 @@ public class BikingController extends HttpServlet {
    }
    
    //유저 수정 요구
-   public void updateUserReq(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {      
+   public void userInfoReq(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {      
       
       String url = "showError.jsp";
       HttpSession session = request.getSession();
       try {
-         request.setAttribute("data", BUserDAO.getUser((String) session.getAttribute("id")));
-         url = "userDetail.jsp";
+         request.setAttribute("data", BikingService.userGet((String) session.getAttribute("id")));
+         url = "userInfo.jsp";
       }catch(Exception s){
          request.setAttribute("errorMsg", s.getMessage());
       }
@@ -123,6 +129,9 @@ public class BikingController extends HttpServlet {
       String pw=request.getParameter("pw");
       String name=request.getParameter("name");
       String phone=request.getParameter("phone");
+      String url = "showError.jsp";
+      
+      BUserDTO user = new BUserDTO(id, pw, name, phone);
       
       if(id == null || id.trim().length() == 0 ||
          name == null || name.trim().length() == 0){
@@ -131,15 +140,52 @@ public class BikingController extends HttpServlet {
          }
          boolean result = false;
          try {
-            result = BUserDAO.updateUser(id, pw, name, phone);
-            request.setAttribute("user", BikingService.userGet(id));
+            result = BikingService.userUpdate(user);
+            if(result){
+           	 request.setAttribute("data", BikingService.userGet(id));
+           	 url = "userInfo.jsp";
+            }
          } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "유저 수정 실패");
          }
-         if(result){
-         request.getRequestDispatcher("userUpdate.jsp").forward(request, response);
-         }
-         request.getRequestDispatcher("showError.jsp").forward(request, response);
+         request.getRequestDispatcher(url).forward(request, response);
       }
+   
+	public void updateUserReq(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String url = "showError.jsp";
+		HttpSession session = request.getSession();
+		try {
+			request.setAttribute("data", BikingService.userGet((String) session.getAttribute("id")));
+			url = "userUpdate.jsp";
+		} catch (Exception s) {
+			request.setAttribute("errorMsg", s.getMessage());
+		}
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+	
+	public void logOut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		response.sendRedirect("login.html");
+	}
+	
+	public void getRentSpot(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		//HttpSession session = request.getSession();
+		String url = "showError.jsp";
+		try {
+			System.out.println(request.getParameter("rentSpotName"));
+			request.setAttribute("rentSpot", BikingService.rentSpotGet(request.getParameter("rentSpotName")));
+			url = "daum.jsp";
+		} catch (Exception s) {
+			request.setAttribute("errorMsg", s.getMessage());
+		}
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+
 }
+	

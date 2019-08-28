@@ -38,6 +38,7 @@
       <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
          <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
          	<form action="bikingcontroller" method="post">
+         	<input type="hidden" name="command" value="updateUser">
                <span class="login100-form-title p-b-49">
                   Update
                </span>
@@ -45,7 +46,7 @@
                <div class="wrap-input100 validate-input m-b-23" data-validate = "ID is required">
                
                   <span class="label-input100">ID</span>
-                  <input class="input100" type="text" name="id" value="${sessionScope.id}">
+                  <input class="input100" type="text" name="id" value="${sessionScope.id}" readonly>
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
             
                </div>
@@ -64,7 +65,7 @@
                
                <div class="wrap-input100 validate-input m-b-23" data-validate = "Phone Number is required">
                   <span class="label-input100">Password</span>
-                  <input class="input100" type="text" name="phone" value="${requestScope.data.pw}">
+                  <input class="input100" type="password" name="pw" value="${requestScope.data.pw}">
                   <span class="focus-input100" data-symbol="&#xf206;"></span>
                </div>
                
@@ -77,7 +78,7 @@
                <div class="container-login100-form-btn">
                   <div class="wrap-login100-form-btn">
                      <div class="login100-form-bgbtn"></div>
-                     <button class="login100-form-btn" onclick="location.href='userUpdate.html'">
+                     <button class="login100-form-btn" type="submit" >
                         Update
                      </button>
                   </div>
