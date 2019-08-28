@@ -19,7 +19,7 @@ public class RentInfoDAO {
 		int result = 0;
 		try {
 			con = DBUtil.getConnection();
-			pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("RentInfoDAO.getRentInfo"));
+			pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("RentInfoDAO.checkRentStatus"));
 			pstmt.setString(1, id);
 			rset = pstmt.executeQuery();
 			if (rset.next()) {

@@ -42,6 +42,10 @@ public class BikingController extends HttpServlet {
         	 getRentSpot(request, response);
          }else if(command.equals("logOut")) {
         	 logOut(request, response);
+         }else if(command.equals("addRentInfo")) {
+        	 addRentInfo(request, response);
+         }else if(command.equals("getBike")) {
+        	 getBike(request, response);
          }
       }catch(Exception s){
          request.setAttribute("errorMsg", s.getMessage());
@@ -178,8 +182,35 @@ public class BikingController extends HttpServlet {
 		//HttpSession session = request.getSession();
 		String url = "showError.jsp";
 		try {
-			System.out.println(request.getParameter("rentSpotName"));
 			request.setAttribute("rentSpot", BikingService.rentSpotGet(request.getParameter("rentSpotName")));
+			url = "daum.jsp";
+		} catch (Exception s) {
+			request.setAttribute("errorMsg", s.getMessage());
+		}
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+	
+	public void getBike(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String url = "showError.jsp";
+		try {
+			
+			request.setAttribute("rentSpot", BikingService.bikeGet(request.getParameter("retSpotName")));
+			url = "daum.jsp";
+		} catch (Exception s) {
+			request.setAttribute("errorMsg", s.getMessage());
+		}
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+	
+	public void addRentInfo(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		int bikeId =  Integer.parseInt(request.getParameter("bikeId"));
+		String url = "showError.jsp";
+		try {
+			
+			request.setAttribute("rentSpot", BikingService.rentInfoAdd((String) session.getAttribute("id"), bikeId));
 			url = "daum.jsp";
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
