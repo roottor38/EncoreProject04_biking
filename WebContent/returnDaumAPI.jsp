@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@page isELIgnored="false" %>
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -115,6 +119,32 @@
 </style>
 </head>
 <body>
+<script>
+/* var loadDt = new Date();
+
+alert(new Date(Date.parse(loadDt) + 1000)); */
+
+function timeSt(dt) {
+    var d = new Date(dt);
+    var yyyy = d.getFullYear();
+    var MM = d.getMonth()+1;
+    var dd = d.getDate();
+    var hh = d.getHours();
+    var mm = d.getMinutes();
+    var ss = d.getSeconds();
+
+    return (yyyy + '-' + addzero(MM) + '-' + addzero(dd) + ' ' + addzero(hh) + ':' + addzero(mm) + ':' + addzero(ss));
+}
+function addzero(n) {
+    return n < 10 ? "0" + n : n;
+}
+
+
+
+alert(timeSt(new Date()) + "부터 대여가 시작되었습니다!");
+</script>
+	
+	
 	<div id="map" style="width: 100%; height: 780px;"></div>
 
 	<script type="text/javascript"
@@ -178,11 +208,11 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=서초">반납</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 서초대로 240</div>'
+				+ '                <div><a href="bikingcontroller?command=returnBike&rentSpotName=서초1&bikeId=${requestScope.bikeId}">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
-
+				${requestScope.bikeId}
 		// 마커 위에 커스텀오버레이를 표시합니다
 		// 마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
 		var overlay = new kakao.maps.CustomOverlay({
@@ -199,7 +229,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay.setMap(map);
-			rentSpot("서초");
+			rentSpot("서초1");
 
 		});
 
@@ -228,8 +258,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=교대">반납</a></div>'
+				+ '                <div class="jibun ellipsis">서울특별시 서초구 서초대로 314</div>'
+				+ '                <div><a href="bikingcontroller?command=returnBike&rentSpotName=교대1&bikeId=${requestScope.bikeId}">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -249,7 +279,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay1.setMap(map);
-			rentSpot("교대");
+			rentSpot("교대1");
 
 		});
 
@@ -278,8 +308,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="bikingcontroller?command=getBike&rentSpotName=방배">반납</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 서초동 1650</div>'
+				+ '                <div><a href="bikingcontroller?command=returnBike&rentSpotName=교대정문&bikeId=${requestScope.bikeId}">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -299,7 +329,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay2.setMap(map);
-			rentSpot("방배");
+			rentSpot("교대정문");
 
 		});
 
@@ -328,8 +358,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 반포대로 76</div>'
+				+ '                <div><a href="bikingcontroller?command=returnBike&rentSpotName=교대입구&bikeId=${requestScope.bikeId}">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -349,7 +379,7 @@
 			closeOverlay3();
 			closeOverlay4();
 			overlay3.setMap(map);
-			rentSpot("교대");
+			rentSpot("교대입구");
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
@@ -378,8 +408,8 @@
 				+ '           </div>'
 				+ '            <div class="desc">'
 				+ '                <div class="ellipsis"><div id="spot"></div></div>'
-				+ '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>'
-				+ '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>'
+				+ '                <div class="jibun ellipsis">서울 서초구 서초대로64길 73</div>'
+				+ '                <div><a href="bikingcontroller?command=returnBike&rentSpotName=교대교차로&bikeId=${requestScope.bikeId}">반납</a></div>'
 				+ '            </div>' + '        </div>' + '    </div>'
 				+ '</div>';
 
@@ -393,7 +423,13 @@
 
 		//마커를 클릭했을 때 커스텀 오버레이를 표시합니다
 		kakao.maps.event.addListener(marker4, 'click', function() {
+			closeOverlay();
+			closeOverlay1();
+			closeOverlay2();
+			closeOverlay3();
+			closeOverlay4();
 			overlay4.setMap(map);
+			rentSpot("교대교차로");
 		});
 
 		//커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
@@ -408,5 +444,6 @@
 			<li><a href="idCheck.jsp" class="button wide">뒤로 가기</a></li>
 		</ul>
 	</div>
+	${requestScope.bikeId}
 </body>
 </html>

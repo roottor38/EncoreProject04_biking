@@ -77,7 +77,6 @@ public class BikingService {
 	//RentInfoDAO
 	public static boolean rentInfoAdd(String id, int bikeId, String rentSpotName) throws SQLException, IOException{
 		String rent = "대여중";
-		System.out.println("rentInfoAdd");
 		if(RentInfoDAO.checkRentStatus(id)==1) {
 			return false;
 		}else if(RentInfoDAO.checkRentStatus(id) == 0) {

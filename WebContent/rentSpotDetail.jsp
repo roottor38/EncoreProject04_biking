@@ -32,6 +32,7 @@
 </style>
 </head>
 <body>
+		
 	<form action="bikingcontroller" method="get">
 	<input type="hidden" name="command" value="addRentInfo">
 	
@@ -45,10 +46,9 @@
 		<tr>
 		<td>${dataAll.bikeId}</td>
 		<td><input type="submit" name ="bikeId" value=${dataAll.bikeId}>
-			
 		</td>
 		</tr>
- 			
+
  	</c:forEach>
 </table>
 

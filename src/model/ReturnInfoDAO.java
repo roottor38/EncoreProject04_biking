@@ -15,12 +15,12 @@ public class ReturnInfoDAO {
 	public static boolean addReturnInfo(String id) throws SQLException, IOException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		System.out.println("running addReturnInfo ");
 
 		try {
 				con = DBUtil.getConnection();
 				pstmt = con.prepareStatement(DBUtil.getproperties().getProperty("ReturnInfoDAO.addReturnInfo"));
 				pstmt.setString(1, id);
+				System.out.println(DBUtil.getproperties().getProperty("ReturnInfoDAO.addReturnInfo"));
 				int result = pstmt.executeUpdate();
 				if (result == 1) {
 					return true;

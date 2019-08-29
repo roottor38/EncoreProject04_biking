@@ -1,121 +1,144 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>바이킹에 오신걸 환영합니다!</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+<head>
+<title>바이킹에 오신걸 환영합니다!</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="assets/css/main.css" />
 
-	</head>
-	<body class="is-preload">
-		<!-- Header -->
-			<section id="header">
-				<div class="inner">
-				<form action="bikingcontroller" method="post">
-					<span class="icon solid major fa-cloud"></span>
-					<h1>안녕하세요! <strong></strong><br />
-					Welcome to Biking!</h1>
-					<p>바이킹은 누구나, 언제나, 어디서나 쉽고 편리하게 이용할 수 있는<br />
-					자전거 무인대여 시스템입니다.</p>
-					<ul class="actions special">
-						<li><a href="daumAPI.jsp" class="button scrolly">대여하기</a></li>
-						<li><a href="bikingcontroller?command=userInfoReq" class="button scrolly">회원정보</a></li>
-						<li><a href="bikingcontroller?command=logOut" class="button scrolly">로그아웃</a></li>
-					</ul>
-				</form>
-				</div>
-			</section>
+</head>
+<body class="is-preload">
+	<!-- Header -->
+	<section id="header">
+		<div class="inner">
+			<form action="bikingcontroller" method="post">
+				<span class="icon solid major fa-cloud"></span>
+				<h1>
+					안녕하세요! <strong></strong><br /> Welcome to Biking!
+				</h1>
+				<p>
+					바이킹은 누구나, 언제나, 어디서나 쉽고 편리하게 이용할 수 있는<br /> 자전거 무인대여 시스템입니다.
+				</p>
 
-		<!-- One -->
-			<section id="one" class="main style1">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Biking과 함께하는 건강한 생활</h2>
-								
-							</header>
-							<p>대여소는 지하철 출입구, 버스정류장, 주택단지,<br /> 
-							관공서, 학교, 은행 등 생활내 통행장소를 중심으로 <br />
-							설치되어 운영중에 있습니다.</p>
-						</div>
-						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="images/bike.jpg" alt="" /></span>
-						</div>
-					</div>
-				</div>
-			</section>
+				<ul class="actions special">
+					<li><a href="daumAPI.jsp" class="button scrolly">대여하기</a></li>
+					<li><a href="bikingcontroller?command=userInfoReq"class="button scrolly">회원정보</a></li>
+					<li><a href="bikingcontroller?command=logOut"class="button scrolly">로그아웃</a></li>
+				</ul>
+			</form>
+		</div>
+	</section>
 
-		<!-- Two -->
-			<section id="two" class="main style2">
-				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-6 col-12-medium">
-							<ul class="major-icons">
-								<li><span class="icon solid style1 major fa-code"></span></li>
-								<li><span class="icon solid style2 major fa-bolt"></span></li>
-								<li><span class="icon solid style3 major fa-camera-retro"></span></li>
-								<li><span class="icon solid style4 major fa-cog"></span></li>
-								<li><span class="icon solid style5 major fa-desktop"></span></li>
-								<li><span class="icon solid style6 major fa-calendar"></span></li>
-							</ul>
-						</div>
-						<div class="col-6 col-12-medium">
-							<header class="major">
-								<h2>Lorem ipsum dolor adipiscing<br />
-								amet dolor consequat</h2>
-							</header>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-							<p>Blandit faucibus proin. Ac aliquam integer adipiscing enim non praesent vis commodo nunc phasellus cubilia ac risus accumsan. Accumsan blandit. Lobortis phasellus non lobortis dit varius mi varius accumsan lobortis. Blandit ante aliquam lacinia lorem lobortis semper morbi col faucibus vitae integer placerat accumsan orci eu mi odio tempus adipiscing adipiscing adipiscing curae consequat feugiat etiam dolore.</p>
-							<p>Adipiscing a commodo ante nunc accumsan interdum mi ante adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus nascetur ac non. Lorem curae eu ante amet sapien in tempus ac. Adipiscing id accumsan adipiscing ipsum.</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-		<!-- Three -->
-			<section id="three" class="main style1 special">
-				<div class="container">
+	<!-- One -->
+	<section id="one" class="main style1">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
 					<header class="major">
-						<h2><strong>Biking</strong> 사용 후기</h2>
+						<h2>Biking과 함께하는 건강한 생활</h2>
+
 					</header>
-					<p>다른 사람들에게 Biking을 추천해 주세요!</p>
-					<div class="row gtr-150">
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/reply1.jpg" alt="" /></span>
-							<h3>요즘 저녁 날씨에 딱 타기 좋네요 !</h3>
-							<p></p>
-							<ul class="actions special">
-
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/reply2.jpg" alt="" /></span>
-							<h3>예, 반갑습니다. 서울 시장입니다. 서울 따릉이 정말 좋네요.</h3>
-							<p></p>
-							<ul class="actions special">
-								<li><a href="#" class="button">후기 쓰러가기</a></li>
-							</ul>
-						</div>
-						<div class="col-4 col-12-medium">
-							<span class="image fit"><img src="images/reply3.jpg" alt="" /></span>
-							<h3>서울에서 부산까지 <br />따릉이로 달려요!	</h3>
-							<p></p>
-							<ul class="actions special">
-
-							</ul>
-						</div>
-					</div>
+					<p>
+						대여소는 지하철 출입구, 버스정류장, 주택단지,<br /> 관공서, 학교, 은행 등 생활내 통행장소를 중심으로 <br />
+						설치되어 운영중에 있습니다.
+					</p>
 				</div>
-			</section>
+				<div class="col-6 col-12-medium imp-medium">
+					<span class="image fit"><img src="images/bike.jpg" alt="" /></span>
+				</div>
+			</div>
+		</div>
+	</section>
 
-		
-		<!-- Five -->
-		<!--
+	<!-- Two -->
+	<section id="two" class="main style2">
+		<div class="container">
+			<div class="row gtr-150">
+				<div class="col-6 col-12-medium">
+					<ul class="major-icons">
+						<li><span class="icon solid style1 major fa-code"></span></li>
+						<li><span class="icon solid style2 major fa-bolt"></span></li>
+						<li><span class="icon solid style3 major fa-camera-retro"></span></li>
+						<li><span class="icon solid style4 major fa-cog"></span></li>
+						<li><span class="icon solid style5 major fa-desktop"></span></li>
+						<li><span class="icon solid style6 major fa-calendar"></span></li>
+					</ul>
+				</div>
+				<div class="col-6 col-12-medium">
+					<header class="major">
+						<h2>
+							Lorem ipsum dolor adipiscing<br /> amet dolor consequat
+						</h2>
+					</header>
+					<p>Adipiscing a commodo ante nunc accumsan interdum mi ante
+						adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus
+						nascetur ac non. Lorem curae eu ante amet sapien in tempus ac.
+						Adipiscing id accumsan adipiscing ipsum.</p>
+					<p>Blandit faucibus proin. Ac aliquam integer adipiscing enim
+						non praesent vis commodo nunc phasellus cubilia ac risus accumsan.
+						Accumsan blandit. Lobortis phasellus non lobortis dit varius mi
+						varius accumsan lobortis. Blandit ante aliquam lacinia lorem
+						lobortis semper morbi col faucibus vitae integer placerat accumsan
+						orci eu mi odio tempus adipiscing adipiscing adipiscing curae
+						consequat feugiat etiam dolore.</p>
+					<p>Adipiscing a commodo ante nunc accumsan interdum mi ante
+						adipiscing. A nunc lobortis non nisl amet vis volutpat aclacus
+						nascetur ac non. Lorem curae eu ante amet sapien in tempus ac.
+						Adipiscing id accumsan adipiscing ipsum.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Three -->
+	<section id="three" class="main style1 special">
+		<div class="container">
+			<header class="major">
+				<h2>
+					<strong>Biking</strong> 사용 후기
+				</h2>
+			</header>
+			<p>다른 사람들에게 Biking을 추천해 주세요!</p>
+			<div class="row gtr-150">
+				<div class="col-4 col-12-medium">
+					<span class="image fit"><img src="images/reply1.jpg" alt="" /></span>
+					<h3>요즘 저녁 날씨에 딱 타기 좋네요 !</h3>
+					<p></p>
+					<ul class="actions special">
+
+					</ul>
+				</div>
+				<div class="col-4 col-12-medium">
+					<span class="image fit"><img src="images/reply2.jpg" alt="" /></span>
+					<h3>예, 반갑습니다. 서울 시장입니다. 서울 따릉이 정말 좋네요.</h3>
+					<p></p>
+					<ul class="actions special">
+						<li><a href="#" class="button">후기 쓰러가기</a></li>
+					</ul>
+				</div>
+				<div class="col-4 col-12-medium">
+					<span class="image fit"><img src="images/reply3.jpg" alt="" /></span>
+					<h3>
+						서울에서 부산까지 <br />따릉이로 달려요!
+					</h3>
+					<p></p>
+					<ul class="actions special">
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Five -->
+	<!--
 			<section id="five" class="main style1">
 				<div class="container">
 					<header class="major special">
@@ -432,27 +455,34 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			</section>
 		-->
 
-		<!-- Footer -->
-			<section id="footer">
-				<ul class="icons">
-					<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-					<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://github.com/roottor38/project01_biking" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; PY & JH</li><li>Design: <a href="https://github.com/roottor38/project01_biking">PY & JH</a></li>
-				</ul>
-			</section>
+	<!-- Footer -->
+	<section id="footer">
+		<ul class="icons">
+			<li><a href="#" class="icon brands alt fa-twitter"><span
+					class="label">Twitter</span></a></li>
+			<li><a href="#" class="icon brands alt fa-facebook-f"><span
+					class="label">Facebook</span></a></li>
+			<li><a href="#" class="icon brands alt fa-instagram"><span
+					class="label">Instagram</span></a></li>
+			<li><a href="https://github.com/roottor38/project01_biking"
+				class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+			<li><a href="#" class="icon solid alt fa-envelope"><span
+					class="label">Email</span></a></li>
+		</ul>
+		<ul class="copyright">
+			<li>&copy; PY & JH</li>
+			<li>Design: <a
+				href="bikingcontroller?command=logOut">로그아웃</a></li>
+		</ul>
+	</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
 </html>
