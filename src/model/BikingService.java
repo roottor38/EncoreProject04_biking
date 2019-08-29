@@ -77,11 +77,12 @@ public class BikingService {
 	//RentInfoDAO
 	public static boolean rentInfoAdd(String id, int bikeId, String rentSpotName) throws SQLException, IOException{
 		String rent = "대여중";
+		System.out.println("rentInfoAdd");
 		if(RentInfoDAO.checkRentStatus(id)==1) {
 			return false;
 		}else if(RentInfoDAO.checkRentStatus(id) == 0) {
 			return RentInfoDAO.addRentInfo(id, bikeId) && RentInfoDAO.updateUserStatus(1, id) && BikeDAO.updateBike(rent, bikeId)
-					&& RentSpotDAO.plusNumBike(rent) && RentSpotDAO.minusNumBike(rentSpotName);
+					&& RentSpotDAO.plusNumBike(rent) && RentSpotDAO.minusNumBike(rentSpotName) && ReturnInfoDAO.addReturnInfo(id);
 		}else {
 			return false;
 		}
@@ -89,7 +90,14 @@ public class BikingService {
 	
 	public static ArrayList<RentInfoDTO> getAllRentInfo() throws SQLException, IOException{
 		return RentInfoDAO.getAllRentInfo();
-	}	
+	}
+	
+	public static boolean returnBike(String rentSpotName, String id, int bikeId) throws SQLException, IOException{
+		
+		return ReturnInfoDAO.returnBike(rentSpotName, id) && RentInfoDAO.updateUserStatus(0, id) && BikeDAO.updateBike(rentSpotName, bikeId)
+				&& RentSpotDAO.plusNumBike(rentSpotName) && RentSpotDAO.minusNumBike("대여중");
+	}
 	
 }
+
 

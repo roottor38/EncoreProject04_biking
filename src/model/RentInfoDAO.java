@@ -87,7 +87,7 @@ public class RentInfoDAO {
 				rset = pstmt.executeQuery();
 				info = new ArrayList<RentInfoDTO>();
 				while(rset.next()) {
-					info.add(new RentInfoDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4)));
+					info.add(new RentInfoDTO(rset.getInt(1), rset.getString(2), rset.getInt(3), rset.getString(4),rset.getString(5)));
 				}
 		} finally {
 			DBUtil.close(con, pstmt, rset);
@@ -107,7 +107,7 @@ public class RentInfoDAO {
 				pstmt.setString(1, id);
 				rset = pstmt.executeQuery();
 				if (rset.next()) {
-					info = new RentInfoDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getString(4));
+					info = new RentInfoDTO(rset.getInt(1), rset.getString(2), rset.getInt(3), rset.getString(4),rset.getString(5));
 					return info;
 				}
 		} finally {

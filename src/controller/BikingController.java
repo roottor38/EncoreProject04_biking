@@ -1,5 +1,4 @@
 package controller;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -18,10 +17,6 @@ import model.dto.BUserDTO;
 public class BikingController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		HttpSession session = request.getSession(); // 생성 또는 이미 해당 user만의 고유한 세션이 존재할 경우 반환
-		System.out.println("===" + session.getAttribute("id"));
-
 		String command = request.getParameter("command");
 		try {
 			if (command.equals("getUser")) {
@@ -44,6 +39,8 @@ public class BikingController extends HttpServlet {
 				addRentInfo(request, response);
 			} else if (command.equals("getBike")) {
 				getBike(request, response);
+			} else if (command.equals("	")) {
+				returnBike(request, response);
 			}
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
@@ -195,9 +192,7 @@ public class BikingController extends HttpServlet {
 			HttpSession session = request.getSession(); // 생성 또는 이미 해당 user만의 고유한 세션이 존재할 경우 반환
 			session.setAttribute("rentSpotName", rentSpotName);
 			request.setAttribute("rentSpot", BikingService.bikeGet(request.getParameter("rentSpotName")));
-
 			url = "rentSpotDetail.jsp";
-			System.out.println(session.getAttribute("rentSpotName"));
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
 		}
@@ -209,10 +204,31 @@ public class BikingController extends HttpServlet {
 		HttpSession session = request.getSession();
 		int bikeId = Integer.parseInt(request.getParameter("bikeId"));
 		String url = "showError.jsp";
+		session.setAttribute("bikeId", bikeId);
 		try {
-			request.setAttribute("rentSpot",
-					BikingService.rentInfoAdd((String) session.getAttribute("id"), bikeId, (String) session.getAttribute("rentSpotName")));
-			url = "returnDaumAPI.jsp";
+			boolean result = BikingService.rentInfoAdd((String) session.getAttribute("id"), bikeId, (String) session.getAttribute("rentSpotName"));
+			if(result) {
+				//request.setAttribute("rentSpot", result);
+				url = "returnDaumAPI.jsp";
+			}
+			
+		} catch (Exception s) {
+			request.setAttribute("errorMsg", s.getMessage());
+			s.printStackTrace();
+		}
+		request.getRequestDispatcher(url).forward(request, response);
+	}
+	
+	public void returnBike(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		String url = "showError.jsp";
+		try {
+			boolean result = BikingService.returnBike((String) session.getAttribute("rentSpotName"), (String) session.getAttribute("id"), Integer.parseInt(session.getAttribute("bikeId").toString()));
+			if(result) {
+				url = "idCheck.jsp";
+			}
+			
 		} catch (Exception s) {
 			request.setAttribute("errorMsg", s.getMessage());
 			s.printStackTrace();
