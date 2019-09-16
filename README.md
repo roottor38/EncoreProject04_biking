@@ -26,3 +26,28 @@ user가 대여소에서 자전거 반납시 보유수 +1
 
 ### bike 정책
 한 자전거는 대여 중 다른 사람이 대여 할 수 없음
+
+### 사용한 기술
+ * Backend
+    - java
+    - servlet & jsp
+    - sql & plsql
+    - jdbc
+    - kakaoAPI (map)
+    
+ * DB
+    - oracleDB
+    
+ * Frontend
+    - html
+    - css
+    - javascript
+ 
+ * template
+    - bootstrap
+
+ * pattern
+    - mvc
+    - command
+    - DAO
+    - DTO
