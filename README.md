@@ -54,3 +54,4 @@ user가 대여소에서 자전거 반납시 보유수 +1
 
 ### 메인 화면
  <img src="https://github.com/roottor38/EncoreProject04_biking/blob/master/main.PNG?raw=true"></img>
+ <img src="https://github.com/roottor38/EncoreProject04_biking/blob/master/api.PNG?raw=true"></img>
